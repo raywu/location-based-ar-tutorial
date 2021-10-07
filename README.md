@@ -22,6 +22,7 @@ Live URL (i.e. for v3 folder): [https://nicolocarpignoli.github.io/location-base
 + Move your terminal to where your pages live: `cd <path-to-content>`
 + Start the server: `live-server --https=<path_to_npm_node_module/live-server-https>` at root
 + Open localhost:8080 in a browser.
++ Download ngrok, authenticate, then run `./ngrok http https://localhost:8080` (assuming port 8080 in `.live-server.json` config)
 
 ### live-server config
 + add `.live-server.json` to root
