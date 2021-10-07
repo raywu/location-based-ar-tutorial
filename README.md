@@ -43,3 +43,10 @@ Live URL (i.e. for v3 folder): [https://nicolocarpignoli.github.io/location-base
     };
     liveServer.start(params);
 ```
+
+# Demo
+
++ [static-places](https://raywu.github.io/location-based-ar-tutorial/static-places)
++ [static-on-html](https://raywu.github.io/location-based-ar-tutorial/static-on-html)
++ [v3](https://raywu.github.io/location-based-ar-tutorial/v3)
++ [dynamic-places (FourSquare)](https://raywu.github.io/location-based-ar-tutorial/dynamic-places)
