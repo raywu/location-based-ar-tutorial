@@ -13,7 +13,7 @@ This project is primarily extending `static-places`.
 
 ## AFrame GIF Shader
 
-<img src="https://github.com/mayognaise/aframe-gif-shader/blob/master/example.gif>
+<img src="https://github.com/mayognaise/aframe-gif-shader/blob/master/example.gif">
 
 + Import this library [https://github.com/mayognaise/aframe-gif-shader](https://github.com/mayognaise/aframe-gif-shader)
 
