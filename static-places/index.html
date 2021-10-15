@@ -18,19 +18,20 @@
 
 <body style='margin: 0; overflow: hidden;'>
     <div class="centered instructions"></div>
-        <a-scene 
-            vr-mode-ui='enabled: false' 
-            embedded
-            arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-            <a-camera gps-camera rotation-reader></a-camera>
-            <!-- <a-entity geometry="primitive:box;" material="shader:gif;src:url(./assets/gifs/nyancat.gif);color:green;opacity:.8"></a-entity> -->
-            <!-- assets -->
-            <a-assets>
-                <img id="nyancat" src="./assets/gifs/nyancat.gif">
-                <img id="pusheen" src="./assets/gifs/pusheen.gif">
-                <img id="banana" src="./assets/gifs/banana.gif">
-            </a-assets>
-        </a-scene>
+    <a-scene 
+        vr-mode-ui='enabled: false' 
+        embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        <a-camera gps-camera rotation-reader></a-camera>
+        <!-- assets -->
+        <a-assets>
+            <img id="nyancat" src="./assets/gifs/nyancat.gif">
+            <img id="pusheen" src="./assets/gifs/pusheen.gif">
+            <img id="banana" src="./assets/gifs/banana.gif">
+            <img id="vibing-cat" src="./assets/gifs/vibing-cat.gif">
+            <img id="spiderman" src="./assets/gifs/spiderman.gif">
+        </a-assets>
+    </a-scene>
     <div class="centered">
         <button data-action="change"></button>
     </div>

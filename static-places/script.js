@@ -3,133 +3,169 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '﹖';
 
-    let places = staticLoadPlaces();
-    renderPlaces(places);
+    setModel(models[modelIndex]);
+    
+    document.querySelector('button[data-action="change"]').addEventListener('click',    function () {
+        modelIndex++;
+        var newIndex = modelIndex % models.length;
+        setModel(models[newIndex]);
+    });
 };
 
-function staticLoadPlaces() {
-    return [
-        {
-            name: 'Pokèmon',
-            location: {
-                // decomment the following and add coordinates:
-                lat: 40.028088,
-                lng: -105.264640,
-            },
+const models = [
+    // {
+    //     url: './assets/magnemite/scene.gltf',
+    //     scale: '0.5 0.5 0.5',
+    //     rotation: '0 270 0',
+    //     info: 'Magnemite, Lv. 5, HP 10/10',
+    //     lat: 40.028088,
+    //     lng: -105.264640,
+    //     gif: {
+    //         geometry: '',
+    //         material: '',
+    //         animation: '',
+    //     },
+    //     // position: '0 -3 5',
+    // },
+    // {
+    //     url: './assets/articuno/scene.gltf',
+    //     scale: '0.1 0.1 0.1',
+    //     rotation: '0 270 0',
+    //     info: 'Articuno, Lv. 80, HP 100/100',
+    //     lat: 40.028088,
+    //     lng: -105.264640,
+    //     gif: {
+    //         geometry: '',
+    //         material: '',
+    //         animation: '',
+    //     },
+    //     // position: '0 -3 5',
+    // },
+    // {
+    //     url: './assets/dragonite/scene.gltf',
+    //     scale: '0.06 0.06 0.06',
+    //     rotation: '0 270 0',
+    //     info: 'Dragonite, Lv. 99, HP 150/150',
+    //     lat: 40.028088,
+    //     lng: -105.264640,
+    //     gif: {
+    //         geometry: '',
+    //         material: '',
+    //         animation: '',
+    //     },
+    //     // position: '0 -4 5',
+    // },
+    {
+        url: '',
+        scale: '5 5 5',
+        rotation: '0 270 0',
+        info: 'nyancat circle',
+        lat: 40.028088,
+        lng: -105.264640,
+        gif: {
+            geometry: 'primitive:circle;segments:5;radius:1.2;',
+            material: 'shader:gif;src:#nyancat;opacity:.8',
+            animation: '',
         },
-    ];
-}
-
-var models = [
-    {
-        url: './assets/magnemite/scene.gltf',
-        // url: '',
-        scale: '0.5 0.5 0.5',
-        info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '0 270 0',
-        // position: '0 -3 5',
-    },
-    {
-        url: './assets/articuno/scene.gltf',
-        // url: '',
-        scale: '0.1 0.1 0.1',
-        rotation: '0 270 0',
-        info: 'Articuno, Lv. 80, HP 100/100',
-        // position: '0 -3 5',
-    },
-    {
-        url: './assets/dragonite/scene.gltf',
-        // url: '',
-        scale: '0.06 0.06 0.06',
-        rotation: '0 270 0',
-        info: 'Dragonite, Lv. 99, HP 150/150',
         // position: '0 -4 5',
     },
     {
         url: '',
         scale: '5 5 5',
         rotation: '0 270 0',
-        info: 'nyancat green box',
-        geometry: 'primitive:box',
-        material: 'shader:gif;src:#nyancat;color:green;opacity:.8',
-        animation: '',
-        type: 'gif',
+        info: 'pusheen box',
+        lat: 40.028088,
+        lng: -105.264640,
+        gif: {
+            geometry: 'primitive:box;width:1.5;height:1.5;depth:1.5;',
+            material: 'shader:gif;src:#pusheen;',
+            animation: 'property: rotation; dur: 10000;to: 0 360 0; loop: true; easing: linear;',
+        },
         // position: '0 -4 5',
     },
     {
         url: '',
         scale: '5 5 5',
         rotation: '0 270 0',
-        info: 'pusheen rotates',
-        geometry: 'primitive:box;width:1.5;height:1.5;depth:1.5;',
-        material: 'shader:gif;src:#pusheen;',
-        animation: 'property: rotation; dur: 10000;to: 0 360 0; loop: true; easing: linear;',
-        type: 'gif',
+        info: 'banana plane',
+        lat: 40.028088,
+        lng: -105.264640,
+        gif: {
+            geometry: 'primitive:plane;width:2;height:2;',
+            material: 'shader:gif;src:#banana;repeat: 2 2;alphaTest:0.5;',
+            animation: '',
+        },
+        // position: '0 -4 5',
+    },
+    {
+        url: '',
+        scale: '5 5 5',
+        rotation: '0 270 0',
+        info: 'vibing cat plane',
+        lat: 40.028088,
+        lng: -105.264640,
+        gif: {
+            geometry: 'primitive:plane;height: 2;width: 2;',
+            material: 'shader:gif;src:#vibing-cat;',
+            animation: '',
+        },
+        // position: '0 -4 5',
+    },
+    {
+        url: '',
+        scale: '5 5 5',
+        rotation: '0 270 0',
+        info: 'spiderman box',
+        lat: 40.028088,
+        lng: -105.264640,
+        gif: {
+            geometry: 'primitive:box;width:1.5;height:1.5;depth:1.5;',
+            material: 'shader:gif;src:#spiderman;',
+            animation: 'property: rotation; dur: 10000;to: 0 360 0; loop: true; easing: linear;',
+        },
         // position: '0 -4 5',
     },
 ];
 
-// TODO rewrite setModel so it resets the entity
+let modelIndex = 0;
+const setModel = function (model) {
+    let scene = document.querySelector('a-scene'); 
+    let entity = document.querySelector('[gps-entity-place]');
+    let subentity = entity && entity.lastElementChild;
 
-var modelIndex = 0;
-var setModel = function (model, entity) {
-    // if (model && model.info == 'nyancat green box') {
-    //     debugger;
-    // }
-    let child = entity.lastElementChild;
-
-    if (model && model.scale) {
-        entity.setAttribute('scale', model.scale);
+    if (entity) {
+        entity.remove();
+        entity = document.createElement('a-entity');
+        entity.classList.add('entity');
+    } else {
+        entity = document.createElement('a-entity');
+        entity.classList.add('entity');
     }
 
-    if (model && model.rotation) {
-        entity.setAttribute('rotation', model.rotation);
+    if (subentity) {
+        subentity.remove();
+        subentity = document.createElement('a-entity')
+    } else {
+        subentity = document.createElement('a-entity')
     }
 
-    if (model && model.position) {
-        entity.setAttribute('position', model.position);
-    }
-
-    if (model && model.url) {
-        entity.setAttribute('gltf-model', model.url);
-    }
+    entity.setAttribute('animation-mixer', '');
+    entity.setAttribute('gps-entity-place', `latitude: ${model.lat}; longitude: ${model.lng};`);
+    entity.setAttribute('position', model.position);
+    entity.setAttribute('gltf-model', model.url);
+    entity.setAttribute('rotation', model.rotation);
+    entity.setAttribute('scale', model.scale);
     
-    if (model && model.type == 'gif') {
-        child.setAttribute('geometry', model.geometry);
-        child.setAttribute('material', model.material);
-        child.setAttribute('animation', model.animation);
+    if (model.gif.material != '') {
+        subentity.setAttribute('geometry', model.gif.geometry);
+        subentity.setAttribute('material', model.gif.material);
+        subentity.setAttribute('animation', model.gif.animation);
+        
+        entity.appendChild(subentity);
     }
+
+    scene.appendChild(entity);
 
     const div = document.querySelector('.instructions');
     div.innerText = model && model.info;
 };
-
-function renderPlaces(places) {
-    let scene = document.querySelector('a-scene');
-
-    places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
-
-        let model = document.createElement('a-entity');
-        let gif = document.createElement('a-entity');
-
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        gif.setAttribute('geometry', '');
-        gif.setAttribute('material', '');
-
-        setModel(models[modelIndex], model, gif);
-
-        model.setAttribute('animation-mixer', '');
-        model.appendChild(gif);
-
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
-            modelIndex++;
-            var newIndex = modelIndex % models.length;
-            setModel(models[newIndex], entity);
-        });
-
-        scene.appendChild(model);
-    });
-}
