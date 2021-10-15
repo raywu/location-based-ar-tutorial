@@ -2,7 +2,7 @@
 
 <img src="https://miro.medium.com/max/2476/1*IymrgzbXR9j7TCqT3GSLNg.png">
 
-This project is forked from [https://github.com/nicolocarpignoli/location-based-ar-tutorial](https://github.com/nicolocarpignoli/location-based-ar-tutorial). These three, basic projects are used on [this tutorial](https://medium.com/chialab-open-source/build-your-location-based-augmented-reality-web-app-c2442e716564) about Location Based Augmented Reality on the Web, using AR.js v2.0.x.
+This project is forked from [https://github.com/nicolocarpignoli/location-based-ar-tutorial](https://github.com/nicolocarpignoli/location-based-ar-tutorial). These four, basic projects are used on [this tutorial](https://medium.com/chialab-open-source/build-your-location-based-augmented-reality-web-app-c2442e716564) about Location Based Augmented Reality on the Web, using AR.js v2.0.x.
 
 + dynamic-places: places are added with remote APIs fetch, using Foursquare APIs. Need configuration (client id and client secret)
 + static-on-html: places are added using a static array via script: you have to manually insert valid gps coordinates in order to see places near you
@@ -13,7 +13,7 @@ This project is primarily extending `static-places`.
 
 ## AFrame GIF Shader
 
-<img src="https://github.com/mayognaise/aframe-gif-shader/blob/master/example.gif">
+<img src="https://github.com/mayognaise/aframe-gif-shader/blob/95f9f7ddd01a247cf07afac583934bb79aafaeff/example.gif">
 
 + Import this library [https://github.com/mayognaise/aframe-gif-shader](https://github.com/mayognaise/aframe-gif-shader)
 
