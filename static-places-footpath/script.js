@@ -2,13 +2,18 @@
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '﹖';
+    const instructions = document.querySelector('.instructions');
+    instructions.innerText = 'All';
 
-    setModel(models[modelIndex]);
+    for (let i = 0; i < models.length; i++) {
+        setModel(models[i]);
+    };
     
     document.querySelector('button[data-action="change"]').addEventListener('click',    function () {
         modelIndex++;
         var newIndex = modelIndex % models.length;
-        setModel(models[newIndex]);
+
+        viewModel(models[newIndex]);
     });
 };
 
@@ -214,25 +219,10 @@ const models = [
 let modelIndex = 0;
 const setModel = function (model) {
     let scene = document.querySelector('a-scene'); 
-    let entity = document.querySelector('[gps-entity-place]');
-    let subentity = entity && entity.lastElementChild;
+    let entity = document.createElement('a-entity');
+    let subentity = document.createElement('a-entity');
 
-    if (entity) {
-        entity.remove();
-        entity = document.createElement('a-entity');
-        entity.classList.add('entity');
-    } else {
-        entity = document.createElement('a-entity');
-        entity.classList.add('entity');
-    }
-
-    if (subentity) {
-        subentity.remove();
-        subentity = document.createElement('a-entity')
-    } else {
-        subentity = document.createElement('a-entity')
-    }
-
+    entity.setAttribute('id', model.info.split(' ').join('-'));
     entity.setAttribute('animation-mixer', '');
     entity.setAttribute('gps-entity-place', `latitude: ${model.lat}; longitude: ${model.lng};`);
     entity.setAttribute('position', model.position);
@@ -249,7 +239,18 @@ const setModel = function (model) {
     }
 
     scene.appendChild(entity);
+};
 
+const viewModel = function (model) {
     const div = document.querySelector('.instructions');
     div.innerText = model && model.info;
+
+    let entities = document.querySelectorAll('a-entity[id]');
+    let entity = document.querySelector(`a-entity#${model.info.split(' ').join('-')}`);
+
+    for (let i = 0; i < entities.length; i++) {
+        entities[i].setAttribute('visible', 'false');
+    }
+
+    entity.setAttribute('visible', 'true');
 };
