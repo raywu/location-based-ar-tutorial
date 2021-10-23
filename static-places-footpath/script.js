@@ -221,6 +221,7 @@ const setModel = function (model) {
     let scene = document.querySelector('a-scene'); 
     let entity = document.createElement('a-entity');
     let subentity = document.createElement('a-entity');
+    let subentityTitle = document.createElement('a-entity');
 
     entity.setAttribute('id', model.info.split(' ').join('-'));
     entity.setAttribute('animation-mixer', '');
@@ -234,8 +235,14 @@ const setModel = function (model) {
         subentity.setAttribute('geometry', model.gif.geometry);
         subentity.setAttribute('material', model.gif.material);
         subentity.setAttribute('animation', model.gif.animation);
+        subentityTitle.setAttribute('text', `value: ${model.info};baseline: bottom;align: center;`);
+        subentityTitle.setAttribute('geometry', 'primitive: plane; width: auto; height: auto');
+        subentityTitle.setAttribute('material', 'color: purple; opacity: 0.4');
+        subentityTitle.setAttribute('position', '0 1.5 0');
+        subentityTitle.setAttribute('scale', '5 5 5');
         
         entity.appendChild(subentity);
+        entity.appendChild(subentityTitle);
     }
 
     scene.appendChild(entity);
