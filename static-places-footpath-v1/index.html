@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GeoAR.js demo</title>
+    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+
+<body style='margin: 0; overflow: hidden;'>
+    <!-- <div class="centered instructions"></div> -->
+    <a-scene 
+        vr-mode-ui='enabled: false' 
+        embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        <a-camera gps-camera rotation-reader></a-camera>
+        <!-- assets -->
+        <a-assets>
+            <img id="nyancat" src="./assets/gifs/nyancat.gif">
+            <img id="pusheen" src="./assets/gifs/pusheen.gif">
+            <img id="banana" src="./assets/gifs/banana.gif">
+            <img id="vibing-cat" src="./assets/gifs/vibing-cat.gif">
+            <img id="spiderman" src="./assets/gifs/spiderman.gif">
+            <img id="amog-us" src="./assets/gifs/amog-us.gif">
+            <img id="duck" src="./assets/gifs/duck.gif">
+            <img id="homer" src="./assets/gifs/homer.gif">
+            <img id="parrot" src="./assets/gifs/parrot.gif">
+            <img id="travolta" src="./assets/gifs/travolta.gif">
+            <!-- need to add  -->
+            <img id="troll" src="./assets/gifs/troll.gif">
+            <img id="transparent-nyancat" src="./assets/gifs/transparent-nyancat.gif">
+        </a-assets>
+    </a-scene>
+    <!-- <div class="centered">
+        <button data-action="change"></button>
+    </div> -->
+</body>
