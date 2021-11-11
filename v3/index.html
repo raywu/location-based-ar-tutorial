@@ -7,20 +7,38 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
+    <div class="centered instructions"></div>
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-box
-        look-at="[gps-camera]"
-        scale="150 150 150"
-        gps-entity-place="latitude: 40.028088; longitude: -105.264640;"
-      ></a-box>
       <a-camera gps-camera rotation-reader> </a-camera>
+      <!-- assets -->
+      <a-assets>
+          <img id="nyancat" src="./assets/gifs/nyancat.gif">
+          <img id="pusheen" src="./assets/gifs/pusheen.gif">
+          <img id="banana" src="./assets/gifs/banana.gif">
+          <img id="vibing-cat" src="./assets/gifs/vibing-cat.gif">
+          <img id="spiderman" src="./assets/gifs/spiderman.gif">
+          <img id="amog-us" src="./assets/gifs/amog-us.gif">
+          <img id="duck" src="./assets/gifs/duck.gif">
+          <img id="homer" src="./assets/gifs/homer.gif">
+          <img id="parrot" src="./assets/gifs/parrot.gif">
+          <img id="travolta" src="./assets/gifs/travolta.gif">
+          <!-- need to add  -->
+          <img id="troll" src="./assets/gifs/troll.gif">
+          <img id="transparent-nyancat" src="./assets/gifs/transparent-nyancat.gif">
+      </a-assets>
     </a-scene>
+    <div class="centered">
+        <button data-action="change"></button>
+    </div>
   </body>
 </html>
