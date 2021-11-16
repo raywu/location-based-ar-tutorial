@@ -20,7 +20,7 @@ window.onload = () => {
 const models = [
     {
         url: '',
-        scale: '5 5 5',
+        scale: '7 7 7',
         rotation: '0 315 0',
         info: 'fortnite dance',
         lat: 40.02828,
@@ -34,7 +34,7 @@ const models = [
     },
     {
         url: '',
-        scale: '5 5 5',
+        scale: '7 7 7',
         rotation: '0 315 0',
         info: 'fortnite dance 2',
         lat: 40.028259999999996,
@@ -48,7 +48,7 @@ const models = [
     },
     {
         url: '',
-        scale: '5 5 5',
+        scale: '7 7 7',
         rotation: '0 315 0',
         info: 'john wick',
         lat: 40.02824999999999,
@@ -71,8 +71,7 @@ const generateIdString = function (string) {
 const setModel = function (model) {
     let scene = document.querySelector('a-scene'); 
     let entity = document.createElement('a-entity');
-    let subentity = document.createElement('a-entity');
-    let subentityTitle = document.createElement('a-entity');
+    let entityTitle = document.createElement('a-entity');
 
     entity.setAttribute('id', generateIdString(model.info));
     // entity.setAttribute('animation-mixer', '');
@@ -81,21 +80,16 @@ const setModel = function (model) {
     // entity.setAttribute('gltf-model', model.url);
     entity.setAttribute('rotation', model.rotation);
     entity.setAttribute('scale', model.scale);
-    
-    if (model.gif.material != '') {
-        subentity.setAttribute('geometry', model.gif.geometry);
-        subentity.setAttribute('material', model.gif.material);
-        subentity.setAttribute('animation', model.gif.animation);
-        subentityTitle.setAttribute('text', `value: ${model.info};baseline: bottom;align: center;`);
-        subentityTitle.setAttribute('geometry', 'primitive: plane; width: auto; height: auto');
-        subentityTitle.setAttribute('material', 'color: purple; opacity: 0.4');
-        subentityTitle.setAttribute('position', '0 1.5 0');
-        subentityTitle.setAttribute('scale', '5 5 5');
-        
-        entity.appendChild(subentity);
-        entity.appendChild(subentityTitle);
-    }
+    entity.setAttribute('geometry', model.gif.geometry);
+    entity.setAttribute('material', model.gif.material);
+    entity.setAttribute('animation', model.gif.animation);
+    entityTitle.setAttribute('text', `value: ${model.info};baseline: bottom;align: center;`);
+    entityTitle.setAttribute('geometry', 'primitive: plane; width: auto; height: auto');
+    entityTitle.setAttribute('material', 'color: purple; opacity: 0.4');
+    entityTitle.setAttribute('position', '0 1.5 0');
+    entityTitle.setAttribute('scale', '3 3 3');
 
+    entity.appendChild(entityTitle);
     scene.appendChild(entity);
 };
 
