@@ -22,12 +22,12 @@ const models = [
         url: '',
         scale: '5 5 5',
         rotation: '0 315 0',
-        info: 'No U!',
+        info: 'fortnite dance',
         lat: 40.02828,
         lng: -105.26473,
         gif: {
             geometry: 'primitive:plane;width:1.5;height:1.5;',
-            material: 'shader:gif;src:#spiderman;',
+            material: 'shader:gif;src:#fortnite-dance;',
             animation: '',
         },
         // position: '0 -4 5',
@@ -36,12 +36,12 @@ const models = [
         url: '',
         scale: '5 5 5',
         rotation: '0 315 0',
-        info: 'No, No U!',
+        info: 'fortnite dance 2',
         lat: 40.028259999999996,
         lng: -105.26457,
         gif: {
             geometry: 'primitive:plane;width:1.5;height:1.5;',
-            material: 'shader:gif;src:#spiderman;',
+            material: 'shader:gif;src:#fortnite-l;',
             animation: '',
         },
         // position: '0 -4 5',
@@ -50,13 +50,13 @@ const models = [
         url: '',
         scale: '5 5 5',
         rotation: '0 315 0',
-        info: 'No, No, No U!',
+        info: 'john wick',
         lat: 40.02824999999999,
         lng: -105.26424,
         gif: {
-            geometry: 'primitive:plane;width:1.5;height:1.5;',
-            material: 'shader:gif;src:#spiderman;',
-            animation: '',
+            geometry: 'primitive:plane; width:1.5;height:1.5;',
+            material: 'shader:gif;src:#john-wick;',
+            animation: 'easing:linear;',
         },
         // position: '0 -4 5',
     },
@@ -75,10 +75,10 @@ const setModel = function (model) {
     let subentityTitle = document.createElement('a-entity');
 
     entity.setAttribute('id', generateIdString(model.info));
-    entity.setAttribute('animation-mixer', '');
+    // entity.setAttribute('animation-mixer', '');
     entity.setAttribute('gps-entity-place', `latitude: ${model.lat}; longitude: ${model.lng};`);
-    entity.setAttribute('position', model.position);
-    entity.setAttribute('gltf-model', model.url);
+    // entity.setAttribute('position', model.position);
+    // entity.setAttribute('gltf-model', model.url);
     entity.setAttribute('rotation', model.rotation);
     entity.setAttribute('scale', model.scale);
     
